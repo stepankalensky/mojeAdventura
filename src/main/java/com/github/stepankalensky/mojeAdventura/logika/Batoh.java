@@ -14,7 +14,7 @@ import java.util.HashMap;
  * NOSNOST - statistická proměnná udávající maximální možný počet předmětů,
  * které hráč může mít v jednu chvíli u sebe
  * 
- * Do batohu se dají věci přidávat a také z něj vyhazovat.
+ * Do batohu se dají věci přidávat a také z něj jdou vyhazovat.
  * 
  * @author Štěpán Kalenský
  * @version 1.0
