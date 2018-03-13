@@ -1,4 +1,4 @@
-package com.github.stepankalensky.mojeAdventura.logika;
+package com.github.stepankalensky.mojeAdventura;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,9 +15,9 @@ import java.util.Map;
  *@author     Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova
  *@version    pro školní rok 2016/2017
  */
-public class SeznamPrikazu {
+class SeznamPrikazu {
     // mapa pro uložení přípustných příkazů
-    private Map<String,IPrikaz> mapaSPrikazy;
+    private  Map<String,IPrikaz> mapaSPrikazy;
     
    
     
