@@ -5,7 +5,16 @@ package com.github.stepankalensky.mojeAdventura.main;
 
 
 import com.github.stepankalensky.mojeAdventura.logika.*;
+import com.github.stepankalensky.mojeAdventura.logika.IHra;
+import com.github.stepankalensky.mojeAdventura.uiText.HomeController;
+import com.github.stepankalensky.mojeAdventura.logika.*;
 import com.github.stepankalensky.mojeAdventura.uiText.TextoveRozhrani;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /*******************************************************************************
  * Třída  Start je hlavní třídou projektu,
@@ -14,7 +23,7 @@ import com.github.stepankalensky.mojeAdventura.uiText.TextoveRozhrani;
  * @author    Jarmila Pavlíčková
  * @version   ZS 2016/2017
  */
-public class Start
+public class Start extends Application
 {
     /***************************************************************************
      * Metoda, prostřednictvím níž se spouští celá aplikace.
@@ -24,8 +33,34 @@ public class Start
     public static void main(String[] args)
     {
         
-        IHra hra = new Hra();
-        TextoveRozhrani ui = new TextoveRozhrani(hra);
-        ui.hraj();
+ //       IHra hra = new Hra();
+ //       TextoveRozhrani ui = new TextoveRozhrani(hra);
+ //       ui.hraj();
+    	launch(args);
+    	
+    	
+    }
+    /**
+	 * Metoda, ve které se konstruuje okno, kontroler a hra,
+	 * která se předává kontroleru
+	 */
+    
+    @Override
+	public void start(Stage primaryStage) throws Exception {
+		FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(getClass().getResource("../resources/MainWindow.fxml"));    	
+    	Parent root = loader.load();
+
+    	
+     	HomeController controller = loader.getController();
+   	    IHra hra = new Hra();
+		controller.inicializuj(hra);
+    	
+    	primaryStage.setScene(new Scene(root));
+    	primaryStage.show();
+    	primaryStage.setTitle("Fotbalová adventura");
+    	
+
     }
 }
+  

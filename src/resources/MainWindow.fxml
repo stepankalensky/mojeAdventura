@@ -20,7 +20,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.stepankalensky.adventura.ui.HomeController">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" 
+minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: grey;" 
+xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" 
+fx:controller="com.github.stepankalensky.mojeAdventura.uiText.HomeController">
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="150.0" prefWidth="150.0" />
     <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />

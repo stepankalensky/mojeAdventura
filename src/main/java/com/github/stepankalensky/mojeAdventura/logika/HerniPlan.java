@@ -1,5 +1,7 @@
 package com.github.stepankalensky.mojeAdventura.logika;
 
+import java.util.Observable;
+
 /**
  *  Class HerniPlan - třída představující mapu a stav adventury.
  * 
@@ -11,7 +13,7 @@ package com.github.stepankalensky.mojeAdventura.logika;
  *@author     Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova, Štěpán Kalenský
  *@version    1.0
  */
-public class HerniPlan {
+public class HerniPlan extends Observable{
 
     private Prostor aktualniProstor;
     private Prostor viteznyProstor;
@@ -172,6 +174,8 @@ public class HerniPlan {
      */
     public void setAktualniProstor(Prostor prostor) {
         aktualniProstor = prostor;
+        this.setChanged();
+        this.notifyObservers();
     }
 
     public boolean jeVyhra(){
