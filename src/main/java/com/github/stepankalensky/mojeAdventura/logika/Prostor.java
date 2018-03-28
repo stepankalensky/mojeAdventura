@@ -235,5 +235,10 @@ public class Prostor {
     public boolean jeVecVProstoru(String nazevVeci){
         return veci.containsKey(nazevVeci);
     }
-
+    
+    
+    @Override
+    public String toString() {
+   	return getNazev();
+   }
 }
