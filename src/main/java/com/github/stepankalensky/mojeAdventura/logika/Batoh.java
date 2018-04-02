@@ -1,11 +1,11 @@
 package com.github.stepankalensky.mojeAdventura.logika;
 
-import java.util.Map;
+
 import java.util.Observable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
+
 import java.util.List;
 
 /**
@@ -99,7 +99,7 @@ public class Batoh extends Observable
 	 * 
 	 * @return true, zdali je mozne vlozit dalsi vec
 	 */
-	public boolean vejdeSe() {
+	public boolean jeMisto() {
 		return inventarHrace.size() < NOSNOST;
 	}
     
@@ -117,11 +117,11 @@ public class Batoh extends Observable
     /**
 	 * Metoda prida vec do batohu pokud se vejde a je prenositelna
 	 * 
-	 * @param item - vec pro vlozeni
+	 * @param vec - vec pro vlozeni
 	 */
-	public boolean vlozDoBatohu(Vec item) {
-		if (vejdeSe() && item.jePrenositelna()) {
-			inventarHrace.add(item);
+	public boolean vlozDoBatohu(Vec vec) {
+		if (jeMisto() && vec.jePrenositelna()) {
+			inventarHrace.add(vec);
 			
 			setChanged();
 			notifyObservers();
@@ -142,7 +142,7 @@ public class Batoh extends Observable
         return NOSNOST;
     }
     
-    
+   
 
 }
     

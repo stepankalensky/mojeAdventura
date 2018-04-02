@@ -64,4 +64,10 @@ public class Vec
 
     //== Soukromé metody (instancí i třídy) ========================================
 
-}
+
+    @Override
+public String toString() {
+	return getNazev();
+  }
+    
+} 

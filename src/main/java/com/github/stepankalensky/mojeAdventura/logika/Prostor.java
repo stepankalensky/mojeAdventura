@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * @author Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova, Štěpán Kalenský
  * @version 1.0
  */
-public class Prostor {
+public class Prostor extends Observable{
 
     private String nazev;
     private String popis;
