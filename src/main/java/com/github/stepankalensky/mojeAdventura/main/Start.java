@@ -20,7 +20,7 @@ import javafx.stage.Stage;
  * Třída  Start je hlavní třídou projektu,
  * který představuje jednoduchou textovou adventuru určenou k dalším úpravám a rozšiřování
  *
- * @author    Jarmila Pavlíčková
+ * @author    Jarmila Pavlíčková, Štěpán Kalenský
  * @version   ZS 2016/2017
  */
 public class Start extends Application
@@ -30,16 +30,21 @@ public class Start extends Application
      *
      * @param args Parametry příkazového řádku
      */
-    public static void main(String[] args)
-    {
-        
- //       IHra hra = new Hra();
- //       TextoveRozhrani ui = new TextoveRozhrani(hra);
- //       ui.hraj();
-    	launch(args);
+	public static void main(String[] args) {
+        if (args.length == 0) {
+            launch(args);
+        } else {
+            if (args[0].equals("-text")) {
+                IHra hra = new Hra();
+                TextoveRozhrani ui = new TextoveRozhrani(hra);
+                ui.hraj();
+            } else {
+                System.out.println("Neplatný parametr");
+            }
+        }
+}
     	
-    	
-    }
+    
     /**
 	 * Metoda, ve které se konstruuje okno, kontroler a hra,
 	 * která se předává kontroleru
