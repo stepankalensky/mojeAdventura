@@ -40,23 +40,20 @@ public class PrikazZahod implements IPrikaz
             return "Co mám vyhodit? Musíš zadat název věci";
         }
         String nazevVeci = parametry[0];       
-        Prostor aktualniProstor = plan.getAktualniProstor();
-
-        Vec mazana = plan.getBatoh().vecVInventari(nazevVeci);
-        if (plan.getBatoh().obsahujeVec(nazevVeci) == false) {
-            return "Tohle v inventáři nemáš";
-        }
-
-        else{
-            Batoh batoh = plan.getBatoh();
-            aktualniProstor.vlozVec(mazana);
-            batoh.odeberVec(nazevVeci);
-
-            return " Zahodil jsi" + " " + nazevVeci ;
-        }
+        if (plan.getBatoh().obsahujeVec(nazevVeci)) {
+			Prostor aktualniProstor = plan.getAktualniProstor();
+			Vec vec = plan.getBatoh().odeberVec(nazevVeci);
+			aktualniProstor.vlozVec(vec);
+			
+			return "\nPředmět " + nazevVeci + " byla zahozena.\n";
+			
+		} else {
+			return "\nDobrý pokus, ale takovou věc u sebe nemáš!\n";
+		}
+}
 
     
-    }
+    
     
     /**
      *  Metoda vrací název příkazu (slovo které používá hráč pro jeho vyvolání)

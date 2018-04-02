@@ -1,7 +1,12 @@
 package com.github.stepankalensky.mojeAdventura.logika;
 
 import java.util.Map;
+import java.util.Observable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Trida Batoh - obsahuje seznam Věcí, které má hráč u sebe.
@@ -19,9 +24,9 @@ import java.util.HashMap;
  * @author Štěpán Kalenský
  * @version 1.0
  */
-public class Batoh
+public class Batoh extends Observable
 {
-    private Map<String, Vec> inventarHrace;
+    private List<Vec> inventarHrace;
     private static final int NOSNOST = 10;
 
 
@@ -31,63 +36,104 @@ public class Batoh
      */
     public Batoh()
     {
-        inventarHrace = new HashMap<>(); 
+        inventarHrace = new ArrayList<Vec>(); 
 
     }
-    /**
-     * Metoda, které vloží věc do batohu.
-     * Je omezená - pokud bude chtít hráč vložit do batohu věc, na kterou už nemá místo
-     * - věc se nepřidá.
-     */
-    public boolean vlozDoBatohu(Vec vec){
-        if (inventarHrace.size() < NOSNOST) {
-            inventarHrace.put(vec.getNazev(), vec);
-            return true;
-        }
-        return false;
+    
 
-    }
+    
     /**
      * Metoda, které odebere věc z batohu.
      */
-    public void odeberVec (String nazevVeci){
-        inventarHrace.remove(nazevVeci);
+    public Vec odeberVec (String nazevVeci){
+        Vec mazanaVec = null;
+        for (Vec item : inventarHrace) {
+			if (item.getNazev().equals(nazevVeci)) {
+				mazanaVec = item;
+				inventarHrace.remove(item);
+				
+				setChanged();
+				notifyObservers();
+				
+				break;
+			}
+		}
+		
+		return mazanaVec;
+	}
 
-    }
+    
 
-    /**
-     * Metoda , kterou označíme věc.
-     * 
-     */
-    public Vec vecVInventari (String nazevVeci) {
-        return inventarHrace.get(nazevVeci);
-    }
+   
 
     /**
      * Metoda, ve které se ptáme, jestli batoh obsahuje určitou věc.
      * 
      */
     public boolean obsahujeVec (String nazevVeci) {
-        return inventarHrace.containsKey(nazevVeci);
+    	for (Vec item : inventarHrace) {
+			if (item.getNazev().equals(nazevVeci)) {
+				return true;
+			}
+		}
+		return false;
+    }
+    
+    /**
+	 * Metoda zjistujici obsah batohu
+	 * 
+	 * @return retezec obsahujici jednotlive nazvy veci z batohu
+	 */
+	public String getObsahBatohu() {
+		String obsah = "";
+		
+		for (Vec item : inventarHrace) {
+			obsah += item.getNazev() + " ";
+		}
+		
+		return obsah;
+	}
+	
+	/**
+	 * Metoda zjistuje, zdali neni naplnena kapacita batohu
+	 * 
+	 * @return true, zdali je mozne vlozit dalsi vec
+	 */
+	public boolean vejdeSe() {
+		return inventarHrace.size() < NOSNOST;
+	}
+    
+    /**
+     * Metoda vraci seznam veci v batohu
+     * 
+     * @return Kolekce veci obsazenych v batohu.
+     */
+	public Collection<Vec> getVeci() {
+    	return Collections.unmodifiableCollection(inventarHrace);
     }
 
+   
+    
     /**
-     * Metoda vypisující seznam věcí v batohu.
-     */
-    public String veciVBatohu() {
-        String nazvy= "věci v batohu: ";
-        for (String nazevVeci : inventarHrace.keySet()){
-            nazvy += nazevVeci + " ";
-        }
-        return nazvy;
-    }
+	 * Metoda prida vec do batohu pokud se vejde a je prenositelna
+	 * 
+	 * @param item - vec pro vlozeni
+	 */
+	public boolean vlozDoBatohu(Vec item) {
+		if (vejdeSe() && item.jePrenositelna()) {
+			inventarHrace.add(item);
+			
+			setChanged();
+			notifyObservers();
+			
+			return true;
+		}
+		
+		return false;
+	}
+  
 
-    /**
-     * Getter na batoh.
-     */
-    public Map getBatoh(){
-        return inventarHrace;
-    }
+   
 
     /**
      * Getter na NOSNOST batohu.
@@ -95,5 +141,8 @@ public class Batoh
     public int getNosnostBatohu(){
         return NOSNOST;
     }
+    
+    
 
 }
+    

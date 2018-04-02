@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.media.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
@@ -20,10 +21,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" 
-minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: grey;" 
-xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" 
-fx:controller="com.github.stepankalensky.mojeAdventura.uiText.HomeController">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.stepankalensky.mojeAdventura.uiText.HomeController">
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="150.0" prefWidth="150.0" />
     <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
@@ -38,8 +36,11 @@ fx:controller="com.github.stepankalensky.mojeAdventura.uiText.HomeController">
    <children>
       <ListView fx:id="seznamMistnosti" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets bottom="10.0" top="10.0" />
+            <Insets bottom="10.0" left="10.0" right="10.0" top="40.0" />
          </GridPane.margin>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
       </ListView>
       <TextArea fx:id="textVypis" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
@@ -59,23 +60,23 @@ fx:controller="com.github.stepankalensky.mojeAdventura.uiText.HomeController">
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>
       </HBox>
-      <ImageView fitHeight="350.0" fitWidth="480.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.vgrow="NEVER">
+      <ImageView fitHeight="300.0" fitWidth="480.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.vgrow="NEVER">
          <image>
             <Image url="@herniPlan.png" />
          </image>
          <GridPane.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            <Insets top="25.0" />
          </GridPane.margin>
       </ImageView>
-      <MenuBar>
+      <MenuBar GridPane.columnSpan="2147483647">
         <menus>
           <Menu mnemonicParsing="false" text="Soubor">
             <items>
-              <MenuItem mnemonicParsing="false" text="Nová hra" />
-              <MenuItem mnemonicParsing="false" text="Nápověda" />
+              <MenuItem fx:id="novaHra" mnemonicParsing="false" text="Nová hra" />
+              <MenuItem fx:id="napoveda" mnemonicParsing="false" text="Nápověda" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="O programu" />
+            <Menu fx:id="oProgramu" mnemonicParsing="false" text="O programu" />
         </menus>
          <opaqueInsets>
             <Insets />
@@ -84,11 +85,39 @@ fx:controller="com.github.stepankalensky.mojeAdventura.uiText.HomeController">
             <Insets bottom="250.0" />
          </GridPane.margin>
       </MenuBar>
-      <ListView maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="100.0" GridPane.columnIndex="2">
+      <ListView fx:id="seznamPostav" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="100.0" GridPane.columnIndex="2">
          <GridPane.margin>
-            <Insets bottom="75.0" left="25.0" />
+            <Insets bottom="75.0" left="25.0" top="25.0" />
          </GridPane.margin>
       </ListView>
+      <Label text="Seznam postav:" textFill="#5effff" GridPane.columnIndex="2">
+         <GridPane.margin>
+            <Insets bottom="210.0" left="30.0" />
+         </GridPane.margin>
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label text="muž" GridPane.columnIndex="2">
+         <GridPane.margin>
+            <Insets bottom="180.0" left="37.0" />
+         </GridPane.margin>
+      </Label>
+      <Label text="Seznam místností" textFill="#5effff" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets bottom="300.0" left="30.0" />
+         </GridPane.margin>
+      </Label>
+      <ListView fx:id="obsahBatohu" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets top="40.0" />
+         </GridPane.margin>
+      </ListView>
+      <Label text="Obsah batohu:" textFill="#5effff" GridPane.rowIndex="1">
+         <padding>
+            <Insets bottom="290.0" left="35.0" />
+         </padding>
+      </Label>
    </children>
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

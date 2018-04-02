@@ -198,14 +198,14 @@ public class Prostor {
     /**
      * Metoda sloužící k vypsání přítomných postav v dané mísnosti.
      */
-    private String popisPostav(){
+    public String popisPostav(){
         String popis = "postavy:";
         for (String nazev : postavy.keySet()) {
             popis += " " + nazev;
         }
         return popis;
     }
-
+    
     /**
      * Metoda vloží postavu do místnosti/prostoru.
      */

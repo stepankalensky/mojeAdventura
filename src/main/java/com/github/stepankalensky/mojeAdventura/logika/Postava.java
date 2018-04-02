@@ -2,6 +2,7 @@
  * Kontrola kódování: Příliš žluťoučký kůň úpěl ďábelské ódy. */
 package com.github.stepankalensky.mojeAdventura.logika;
 
+import java.util.Observable;
 
 /**
  * Trida Postava - obsahuje postavy, se kterými se dá ve hře komunikovat.
@@ -18,7 +19,7 @@ package com.github.stepankalensky.mojeAdventura.logika;
  * @author Štěpán Kalenský
  * @version 1.0
  */
-public class Postava
+public class Postava 
 {
 
     private String jmeno;
@@ -47,6 +48,7 @@ public class Postava
         return proslov;
 
     }
-
+    
+   
    
 }

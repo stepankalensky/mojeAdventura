@@ -2,15 +2,21 @@ package com.github.stepankalensky.mojeAdventura.uiText;
 
 
 
+import java.util.Collection;
 import java.util.Observable;
 import java.util.Observer;
 
+import com.github.stepankalensky.mojeAdventura.Batoh;
+import com.github.stepankalensky.mojeAdventura.Postava;
+import com.github.stepankalensky.mojeAdventura.logika.Hra;
 import com.github.stepankalensky.mojeAdventura.logika.IHra;
 import com.github.stepankalensky.mojeAdventura.logika.Prostor;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Labeled;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
@@ -19,7 +25,7 @@ import javafx.scene.layout.GridPane;
  * Kontroler, který zprostředkovává komunikaci mezi grafikou
  * a logikou adventury
  * 
- * @author Filip Vencovsky
+ * @author Filip Vencovsky, Štěpán Kalenský
  *
  */
 public class HomeController extends GridPane implements Observer {
@@ -28,7 +34,10 @@ public class HomeController extends GridPane implements Observer {
 	@FXML private TextArea textVypis;
     @FXML private Button odesli;
     @FXML private ListView<Prostor> seznamMistnosti;
+    @FXML private ListView<Prostor> obsahBatohu;
+    @FXML private MenuItem novaHra;
 	private IHra hra;
+	
 	
 	/**
 	 * Metoda čte příkaz ze vstupního textového pole
@@ -39,6 +48,7 @@ public class HomeController extends GridPane implements Observer {
 		 textVypis.appendText("\n--------\n"+textVstup.getText()+"\n-------\n");
 		 textVypis.appendText(vypis);
 		 textVstup.setText("");
+		
 		 
 		 if(hra.konecHry()) {
 			  textVypis.appendText("\n\n Konec hry \n");
@@ -54,12 +64,27 @@ public class HomeController extends GridPane implements Observer {
 		textVypis.setText(hra.vratUvitani());
 		seznamMistnosti.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVychody());
 		hra.getHerniPlan().addObserver(this);
-	}
-	@Override
-	public void update(Observable arg0, Object arg1) {
-		// TODO Auto-generated method stub
-		seznamMistnosti.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVychody());
+		hra.getHerniPlan().getBatoh().addObserver(this);
 	}
 	
+	
+	
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		seznamMistnosti.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVychody());
+	
+		
+		
+		
+	
+	}
+	
+	  @FXML
+	    private void novaHra() {
+	        IHra hra = new Hra();
+	        this.inicializuj(hra);
+	  }
+	  
+	  
 
 }

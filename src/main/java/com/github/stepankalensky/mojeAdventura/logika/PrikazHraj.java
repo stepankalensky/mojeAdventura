@@ -49,7 +49,7 @@ public class PrikazHraj implements IPrikaz
         Prostor aktualniProstor = plan.getAktualniProstor();
         Batoh batoh = plan.getBatoh();
         if( aktualniProstor.getNazev().equals("stadion")){
-            if(batoh.veciVBatohu().contains("kopačky") && batoh.veciVBatohu().contains("dres") && batoh.veciVBatohu().contains("kraťasy"))  {
+            if(batoh.getObsahBatohu().contains("kopačky") && batoh.getObsahBatohu().contains("dres") && batoh.getObsahBatohu().contains("kraťasy"))  {
                 plan.nastavVyhra(true);
                 return "Vyhráli jsme zápas!";
             }

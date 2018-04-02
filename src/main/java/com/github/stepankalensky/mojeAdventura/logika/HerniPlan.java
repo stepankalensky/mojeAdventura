@@ -99,23 +99,23 @@ public class HerniPlan extends Observable{
         Vec stul = new Vec("stůl",false, "nic");
         Vec postel = new Vec("postel",false,"nic");
         Vec televize = new Vec("televize",false,"nic");
-        Vec svacina = new Vec("svačina", true,"svacina");
+        Vec svacina = new Vec("svačina", true,"svacina.png");
         Vec lampa = new Vec("lampa", false,"nic");
-        Vec zavazadlo = new Vec("zavazadlo", true,"zavazadlo");
+        Vec zavazadlo = new Vec("zavazadlo", true,"zavazadlo.png");
         Vec letadlo= new Vec("letadlo", false,"nic");
         Vec automat= new Vec("automat", false,"nic");
         Vec dvere = new Vec("dveře", false,"nic");
         Vec rozcestnik = new Vec("rozcestník", false,"nic");
-        Vec mic= new Vec("míč", true,"mic");
+        Vec mic= new Vec("míč", true,"mic.png");
         Vec socha= new Vec("socha", false,"nic");
-        Vec kratasy= new Vec("kraťasy", true,"kratasy"); //nutné sebrat, aby hráč vyhrál
-        Vec pivo= new Vec("pivo", true,"pivo");
-        Vec kopacky= new Vec("kopačky", true,"kopacky");   //nutné sebrat, aby hráč vyhrál
+        Vec kratasy= new Vec("kraťasy", true,"kratasy.png"); //nutné sebrat, aby hráč vyhrál
+        Vec pivo= new Vec("pivo", true,"pivo.png");
+        Vec kopacky= new Vec("kopačky", true,"kopacky.png");   //nutné sebrat, aby hráč vyhrál
         Vec stojan=new Vec("stojan", false,"nic");
         Vec trouba= new Vec("trouba", false,"nic");
-        Vec dres= new Vec("dres", true,"dres");    //nutné sebrat, aby hráč vyhrál
-        Vec paratko= new Vec("párátko", true,"paratko");
-        Vec euro= new Vec("euro", true,"euro");
+        Vec dres= new Vec("dres", true,"dres.png");    //nutné sebrat, aby hráč vyhrál
+        Vec paratko= new Vec("párátko", true,"paratko.png");
+        Vec euro= new Vec("euro", true,"euro.png");
         Vec trofej=new Vec("trofej", false,"nic");
         Vec taxik=new Vec("taxík", false,"nic");
         Vec mapa = new Vec("mapa", false,"nic");
@@ -125,6 +125,20 @@ public class HerniPlan extends Observable{
                 "Teď se jdi vyspat a hned zítra se do toho dej. Jsi zmaten, nevíš jestli sníš, tak si jdeš lehnout, abys to otestoval(snít ve snu je totiž paradox). \n" +
                 "Nic. Ráno jsi se probudil a teď už je jasné, že je to všechno doopravdy. Rozhodneš se tedy, že se do toho dáš a zkusíš předměty využít. Jsi doma, co teď uděláš? \n" );
         domov.vlozPostavu(tajemnak); //proslov se provede po použití příkazu mluv
+        letiste.vlozPostavu(tajemnak); //proslov se provede po použití příkazu mluv
+        lanus.vlozPostavu(tajemnak); //proslov se provede po použití příkazu mluv
+        muzeumLanus.vlozPostavu(tajemnak); //proslov se provede po použití příkazu mluv
+        dumLanus.vlozPostavu(tajemnak); //proslov se provede po použití příkazu mluv
+        coracoes.vlozPostavu(tajemnak); //proslov se provede po použití příkazu mluv
+        dumCoracoes.vlozPostavu(tajemnak); //proslov se provede po použití příkazu mluv
+        radniceCoracoes.vlozPostavu(tajemnak); //proslov se provede po použití příkazu mluv
+        muzeumCoracoes.vlozPostavu(tajemnak); //proslov se provede po použití příkazu mluv
+        radniceLanus.vlozPostavu(tajemnak); //proslov se provede po použití příkazu mluv
+        funchal.vlozPostavu(tajemnak); //proslov se provede po použití příkazu mluv
+        dumFunchal.vlozPostavu(tajemnak); //proslov se provede po použití příkazu mluv
+        radniceFunchal.vlozPostavu(tajemnak); //proslov se provede po použití příkazu mluv
+        muzeumFunchal.vlozPostavu(tajemnak); //proslov se provede po použití příkazu mluv
+        mnichov.vlozPostavu(tajemnak); //proslov se provede po použití příkazu mluv
 
         domov.vlozVec(stul);
         domov.vlozVec(postel);

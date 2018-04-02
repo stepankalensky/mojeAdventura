@@ -22,6 +22,7 @@ public class Vec
 
     private String nazev;
     private boolean prenositelnost;
+    private String nazevObrazku;
     //== Konstruktory a tovární metody =============================================
 
     /***************************************************************************
@@ -32,10 +33,11 @@ public class Vec
      *  @param boolean prenositelnost - označuje, zda-li je předmět přenositelný či ne.
      */
 
-    public Vec(String nazev, boolean prenositelnost)
+    public Vec(String nazev, boolean prenositelnost, String nazevObrazku)
     {
         this.nazev = nazev;
         this.prenositelnost = prenositelnost;
+        this.nazevObrazku = nazevObrazku;
     }
 
     //== Nesoukromé metody (instancí i třídy) ======================================
@@ -44,6 +46,14 @@ public class Vec
      */ public String getNazev(){
         return nazev;
     }
+     
+    /**
+     * Getter nazvu obrazku. 
+     * @return nazevObrazku
+     */
+     public String getNazevObrazku() {
+ 		return this.nazevObrazku;
+ 	}
 
     /**
      * Metoda, která nám zodpoví, zda-li je věc přenositelná čí nikoliv.

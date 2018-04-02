@@ -29,7 +29,7 @@ public class PrikazInventar implements IPrikaz
     @Override
     public String provedPrikaz(String... parametry) {
 
-        return plan.getBatoh().veciVBatohu();
+        return plan.getBatoh().getObsahBatohu();
     }
     
     /**
