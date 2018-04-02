@@ -22,6 +22,10 @@ public class Prostor extends Observable{
     private Set<Prostor> vychody;// obsahuje sousední místnosti
     private Map<String, Vec> veci; //obsahuje seznam věcí
     private Map<String, Postava> postavy; //obsahuje seznam postav
+    
+    
+     private int hodnotaX;
+    private int hodnotaY;
     /**
      * Vytvoření prostoru se zadaným popisem, např. "kuchyň", "hala", "trávník
      * před domem"
@@ -30,12 +34,14 @@ public class Prostor extends Observable{
      * víceslovný název bez mezer.
      * @param popis Popis prostoru.
      */
-    public Prostor(String nazev, String popis) {
+    public Prostor(String nazev, String popis,int hodnotaX, int hodnotaY) {
         this.nazev = nazev;
         this.popis = popis;
         vychody = new HashSet<>();
         veci = new HashMap<>();
         postavy = new HashMap<>();
+        this.hodnotaX = hodnotaY;
+        this.hodnotaY = hodnotaY;
     }
 
     /**
@@ -235,6 +241,42 @@ public class Prostor extends Observable{
     public boolean jeVecVProstoru(String nazevVeci){
         return veci.containsKey(nazevVeci);
     }
+    
+    
+    /**
+	 * Getter pro souradnici X
+	 * @return souradnici X
+	 */
+	public int getHodnotaX() {
+		return hodnotaX;
+	}
+
+	/**
+	 * Setter pro souradnici X
+	 */
+	public void setHodnotaX(int hodnotaX) {
+		this.hodnotaX = hodnotaX;
+	}
+
+	/**
+	 * Getter pro souradnici Y
+	 * @return souradnici Y
+	 */
+	public int geHodnotaY() {
+		return hodnotaY;
+	}
+
+	/**
+	 * Setter pro souradnici Y
+	 * @return souradnici Y
+	 */
+	public void setHodnotaY(int hodnotaY) {
+		this.hodnotaY = hodnotaY;
+	}
+    
+    
+    
+    
     
     
     @Override
