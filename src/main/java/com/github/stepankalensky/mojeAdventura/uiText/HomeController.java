@@ -47,6 +47,7 @@ public class HomeController extends GridPane implements Observer {
     @FXML private Button odesli;
     @FXML private ListView<Prostor> seznamMistnosti;
     @FXML private ListView<Object> obsahBatohu;
+    @FXML private ImageView ukazatel;
     
     
     private ObservableList<Object> veciBatoh = FXCollections.observableArrayList();
@@ -86,23 +87,24 @@ public class HomeController extends GridPane implements Observer {
 		textVypis.setEditable(false);
 		textVypis.setText(hra.vratUvitani());
 		
+		obsahBatohu.setItems(veciBatoh);
+		seznamMistnosti.setItems(vychody);
+		
 		
 		seznamMistnosti.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVychody());
 		hra.getHerniPlan().addObserver(this);
 		hra.getHerniPlan().getBatoh().addObserver(this);
 		hra.getHerniPlan().getAktualniProstor().addObserver(this);
 		
-		obsahBatohu.getItems().addAll(hra.getHerniPlan().getBatoh().getVeci());
-		
-		obsahBatohu.setItems(veciBatoh);
-		seznamMistnosti.setItems(vychody);
-		
+
 	}
 	
 	
 	
 	@Override
 	public void update(Observable arg0, Object arg1) {
+		ukazatel.setTranslateX(hra.getHerniPlan().getAktualniProstor().getHodnotaX());
+		ukazatel.setTranslateY(hra.getHerniPlan().getAktualniProstor().getHodnotaY());
 		veciBatoh.clear();
 		vychody.clear();
 		
@@ -113,6 +115,8 @@ public class HomeController extends GridPane implements Observer {
 			ImageView picture = new ImageView(new Image(getClass().getResourceAsStream("../resources/" + vec.getNazevObrazku()), 65, 65, true, false));
 			obsahBatohu.getItems().add(picture);
 		}
+		
+	
 	
 		
 		

@@ -36,26 +36,26 @@ public class HerniPlan extends Observable{
      */
     private void zalozProstoryHry() {
         // vytvářejí se jednotlivé prostory
-        Prostor domov = new Prostor("domov","Tvůj dům, ve kterém bydlíš.");
-        Prostor letiste = new Prostor("letiště", "Letiště - rychlý způsob dopravy přes moře a oceány.");
+        Prostor domov = new Prostor("domov","Tvůj dům, ve kterém bydlíš.",0,0);
+        Prostor letiste = new Prostor("letiště", "Letiště - rychlý způsob dopravy přes moře a oceány.",0,40);
 
-        Prostor lanus = new Prostor("Lanus","Rodné místo Diega Maradony.");
-        Prostor radniceLanus = new Prostor("radnice","Městská radnice Lanusu. Nic tu ale není.");
-        Prostor muzeumLanus = new Prostor("muzeum","Místní muzeum Diega Maradony.");
-        Prostor dumLanus = new Prostor("dům","Velmi hezký dům, kde vyrůstal Diego Maradona.");
+        Prostor lanus = new Prostor("Lanus","Rodné místo Diega Maradony.",-115,45);
+        Prostor radniceLanus = new Prostor("radnice","Městská radnice Lanusu. Nic tu ale není.",-125,-25);
+        Prostor muzeumLanus = new Prostor("muzeum","Místní muzeum Diega Maradony.",-80,4);
+        Prostor dumLanus = new Prostor("dům","Velmi hezký dům, kde vyrůstal Diego Maradona.",-125,96);
 
-        Prostor funchal = new Prostor("Funchal","Rodné místo Cristiana Ronalda.");
-        Prostor radniceFunchal = new Prostor("radnice","Městská radnice Funchalu.");
-        Prostor muzeumFunchal = new Prostor("muzeum","Místní muzeum Cristiana Ronalda.");
-        Prostor dumFunchal = new Prostor("dům","Dům, ve kterém vyrůstal Cristiano Ronaldo. Přísně střežené.");
+         Prostor funchal = new Prostor("Funchal","Rodné místo Cristiana Ronalda.",210,40);
+        Prostor radniceFunchal = new Prostor("radnice","Městská radnice Funchalu.",240,-10);
+        Prostor muzeumFunchal = new Prostor("muzeum","Místní muzeum Cristiana Ronalda.",285,45);
+        Prostor dumFunchal = new Prostor("dům","Dům, ve kterém vyrůstal Cristiano Ronaldo. Přísně střežené.",255,102);
 
-        Prostor coracoes = new Prostor("Coracoes","Rodné místo Pelého.");
-        Prostor radniceCoracoes = new Prostor("radnice","Městská radnice Coracoesu.");
-        Prostor muzeumCoracoes = new Prostor("muzeum","Místní muzeum na poctu Pelého. Dnes mají bohužel zavřeno.");
-        Prostor dumCoracoes = new Prostor("dům","Chatrč, kde vyrůstal Pelé.");
+       Prostor coracoes = new Prostor("Coracoes","Rodné místo Pelého.",3,108);
+       Prostor radniceCoracoes = new Prostor("radnice","Městská radnice Coracoesu.",105,148);
+       Prostor muzeumCoracoes = new Prostor("muzeum","Místní muzeum na poctu Pelého. Dnes mají bohužel zavřeno.",6,168);
+        Prostor dumCoracoes = new Prostor("dům","Chatrč, kde vyrůstal Pelé.",-75,155);
 
-        Prostor mnichov = new Prostor("Mnichov","Město, ve kterém se bude konat zápas.");
-        Prostor stadion = new Prostor("stadion","Rozhodující zápas se bude hrát přímo na tomto stadionu.");
+        Prostor mnichov = new Prostor("Mnichov","Město, ve kterém se bude konat zápas.",200,-50);
+        Prostor stadion = new Prostor("stadion","Rozhodující zápas se bude hrát přímo na tomto stadionu.",290,-50);
         // přiřazují se průchody mezi prostory (sousedící prostory)
         domov.setVychod(letiste);
 

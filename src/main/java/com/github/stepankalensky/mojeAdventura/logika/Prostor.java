@@ -24,8 +24,8 @@ public class Prostor extends Observable{
     private Map<String, Postava> postavy; //obsahuje seznam postav
     
     
-     private int hodnotaX;
-    private int hodnotaY;
+    private double hodnotaX;
+    private double hodnotaY;
     /**
      * Vytvoření prostoru se zadaným popisem, např. "kuchyň", "hala", "trávník
      * před domem"
@@ -34,13 +34,13 @@ public class Prostor extends Observable{
      * víceslovný název bez mezer.
      * @param popis Popis prostoru.
      */
-    public Prostor(String nazev, String popis,int hodnotaX, int hodnotaY) {
+    public Prostor(String nazev, String popis,double hodnotaX, double hodnotaY) {
         this.nazev = nazev;
         this.popis = popis;
         vychody = new HashSet<>();
         veci = new HashMap<>();
         postavy = new HashMap<>();
-        this.hodnotaX = hodnotaY;
+        this.hodnotaX = hodnotaX;
         this.hodnotaY = hodnotaY;
     }
 
@@ -247,14 +247,14 @@ public class Prostor extends Observable{
 	 * Getter pro souradnici X
 	 * @return souradnici X
 	 */
-	public int getHodnotaX() {
+	public double getHodnotaX() {
 		return hodnotaX;
 	}
 
 	/**
 	 * Setter pro souradnici X
 	 */
-	public void setHodnotaX(int hodnotaX) {
+	public void setHodnotaX(double hodnotaX) {
 		this.hodnotaX = hodnotaX;
 	}
 
@@ -262,7 +262,7 @@ public class Prostor extends Observable{
 	 * Getter pro souradnici Y
 	 * @return souradnici Y
 	 */
-	public int geHodnotaY() {
+	public double getHodnotaY() {
 		return hodnotaY;
 	}
 
@@ -270,7 +270,7 @@ public class Prostor extends Observable{
 	 * Setter pro souradnici Y
 	 * @return souradnici Y
 	 */
-	public void setHodnotaY(int hodnotaY) {
+	public void setHodnotaY(double hodnotaY) {
 		this.hodnotaY = hodnotaY;
 	}
     
