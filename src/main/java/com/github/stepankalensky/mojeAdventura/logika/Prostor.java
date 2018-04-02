@@ -244,31 +244,31 @@ public class Prostor extends Observable{
     
     
     /**
-	 * Getter pro souradnici X
-	 * @return souradnici X
+	 * Getter pro hodnotu souřadnice X
+	 * @return hodnota souřadnice X
 	 */
 	public double getHodnotaX() {
 		return hodnotaX;
 	}
 
 	/**
-	 * Setter pro souradnici X
+	 * Setter pro hodnotu souřadnice X
 	 */
 	public void setHodnotaX(double hodnotaX) {
 		this.hodnotaX = hodnotaX;
 	}
 
 	/**
-	 * Getter pro souradnici Y
-	 * @return souradnici Y
+	 * Getter pro hodnotu souřadnice Y
+	 * @return hodnota souřadnice Y
 	 */
 	public double getHodnotaY() {
 		return hodnotaY;
 	}
 
 	/**
-	 * Setter pro souradnici Y
-	 * @return souradnici Y
+	 * Setter pro hodnotu souřadnice Y
+	 * @return hodnota souřadnice Y
 	 */
 	public void setHodnotaY(double hodnotaY) {
 		this.hodnotaY = hodnotaY;

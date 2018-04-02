@@ -79,7 +79,9 @@ public class HomeController extends GridPane implements Observer {
 			  
 			}
 
-		
+	/**
+	 * Metoda inicializuj založí hru, uvítá nás, vypíše úvodní seznamy a přidá Pozorovatele	
+	 */
 	}
 	public void inicializuj(IHra hra) {
 		this.hra = hra;
@@ -99,7 +101,9 @@ public class HomeController extends GridPane implements Observer {
 
 	}
 	
-	
+	/**
+	 * Metoda update aktualizuje veškeré seznamy, aktualizuje ukazatel na mapě a průběžně promazává seznamy
+	 */
 	
 	@Override
 	public void update(Observable arg0, Object arg1) {
