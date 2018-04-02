@@ -47,7 +47,7 @@ public class HomeController extends GridPane implements Observer {
     @FXML private Button odesli;
     @FXML private ListView<Prostor> seznamMistnosti;
     @FXML private ListView<Object> obsahBatohu;
-    @FXML private MenuItem novaHra;
+    
     
     private ObservableList<Object> veciBatoh = FXCollections.observableArrayList();
     private ObservableList<Prostor> vychody = FXCollections.observableArrayList();
@@ -118,12 +118,29 @@ public class HomeController extends GridPane implements Observer {
 		
 	
 	}
-	
+	/**
+	 * Metoda pro spuštění nové hry
+	 */
 	  @FXML
 	    private void novaHra() {
 	        IHra hra = new Hra();
 	        this.inicializuj(hra);
 	  }
+	  /**
+	   * Metoda, která nám zobrazí nápovědu
+	   */
+	  
+	
+		@FXML public void napoveda() {
+			Stage help = new Stage();
+			help.setTitle("Nápověda");
+			
+			WebView webView = new WebView();
+			webView.getEngine().load(getClass().getResource("../resources/napoveda.html").toExternalForm());
+	        
+	        help.setScene(new Scene(webView, 1200, 850));
+	        help.show();
+		}
 	  
 	
 	  
